@@ -1,13 +1,17 @@
+import { GET_USER } from "../action/types";
+
 const initialState = {
-  users: [],
+  user: [],
 };
 
 export default function reducer(state = initialState, action) {
-  switch ((action, type)) {
-    case value:
-      break;
-
+  switch (action) {
+    case GET_USER:
+      return {
+        ...state,
+        userDetails: action.payload,
+      };
     default:
-      break;
+      return { ...state };
   }
 }

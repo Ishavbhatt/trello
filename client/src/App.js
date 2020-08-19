@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Signup from "../src/components/Signup";
@@ -8,22 +8,23 @@ import Header from "../src/components/Header";
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/users">
-            <Header />
-            <h1>Home page</h1>
-          </Route>
-
-          <Route exact path="/users/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/users/signin">
-            <Header />
-            <Signin />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+      <>
+        <Router>
+          <Switch>
+            <Route path="/">
+              <Header />
+              <h1>Home page</h1>
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+            <Route path="/signin">
+              <Header />
+              <Signin />
+            </Route>
+          </Switch>
+        </Router>
+      </>
     );
   }
 }

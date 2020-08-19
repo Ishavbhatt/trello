@@ -2,7 +2,7 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const mongoose = require("mongoose");
-const MongoStore = require("connect-mongo")(session);
+// const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
@@ -27,14 +27,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "./server/views"));
 app.set("view engine", "ejs");
 
-app.use(
-  session({
-    secret: "writer",
-    resave: true,
-    saveUninitialized: true,
-    store: new MongoStore({ url: "mongodb://localhost/trello-session" }),
-  })
-);
+// app.use(
+//   session({
+//     secret: "writer",
+//     resave: true,
+//     saveUninitialized: true,
+//     store: new MongoStore({ url: "mongodb://localhost/trello-session" }),
+//   })
+// );
 
 if (process.env.NODE_ENV === "development") {
   var webpack = require("webpack");
