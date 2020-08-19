@@ -1,25 +1,21 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var boardList = new Schema(
+var boardSchema = new Schema(
   {
-    title: String,
-    data: String,
-    comment: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "List",
-      },
-    ],
-    description: String,
-    list: {
+    board: {
+      type: Array,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    user: {
       type: Schema.Types.ObjectId,
-      ref: "List",
+      ref: "User",
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
-module.exports = mongoose.model("Board", boardList);
+module.exports = mongoose.model("Board", boardSchema);
